@@ -1,6 +1,8 @@
 import express from "express";
 import bcrypt from "bcryptjs";
 import dotenv from "dotenv";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { pool } from "./db.js";
 import { asyncHandler, errorHandler } from "./middleware/errorHandler.js";
 
@@ -8,9 +10,16 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const publicDirectory = path.join(
+  path.dirname(fileURLToPath(import.meta.url)),
+  "public"
+);
 
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static(publicDirectory));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(publicDirectory, "index.html"));
+});
 
 app.post(
   "/api/auth/register",
