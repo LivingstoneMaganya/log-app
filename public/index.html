@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Developer Daily Log</title>
+    <meta name="description" content="A simple daily log for tracking developer work, fixes, features, and learning." />
+    <meta name="theme-color" content="#202320" />
+    <title>Daily Log | Track Your Work</title>
     <link rel="stylesheet" href="style.css" />
     <script src="app.js" defer></script>
   </head>
@@ -15,22 +17,19 @@
       <div id="authSection" class="auth-view">
         <section class="auth-intro" aria-label="Daily Log introduction">
           <div class="brand-mark">DL</div>
-          <p class="eyebrow">Developer workspace</p>
-          <h1>Make progress<br /><em>visible.</em></h1>
-          <p class="intro-copy">
-            A quiet place to capture the work, ideas, and tiny wins that move
-            your projects forward.
-          </p>
+          <p class="eyebrow">Developer log</p>
+          <h1>Track your<br /><em>progress.</em></h1>
+          <p class="intro-copy">Record what you built, fixed, and learned.</p>
           <div class="intro-note">
             <span class="pulse-dot"></span>
-            <span>Built for your daily rhythm</span>
+            <span>Simple. Focused. Yours.</span>
           </div>
         </section>
 
         <section class="auth-panel">
           <div class="panel-kicker">Welcome back</div>
           <h2 id="authTitle">Login</h2>
-          <p class="panel-subtitle">Sign in to pick up where you left off.</p>
+          <p class="panel-subtitle">Your work, in one place.</p>
           <div id="authError" class="error-msg" role="alert"></div>
 
           <form id="authForm">
@@ -59,7 +58,7 @@
           <div class="dashboard-brand">
             <div class="brand-mark small">DL</div>
             <div>
-              <p class="eyebrow">Your workspace</p>
+              <p class="eyebrow">Workspace</p>
               <h1>Daily Log</h1>
             </div>
           </div>
@@ -71,18 +70,18 @@
 
         <div class="dashboard-intro">
           <div>
-            <p class="eyebrow">Keep the signal</p>
-            <h2>What did you move forward today?</h2>
+            <p class="eyebrow">Today</p>
+            <h2>What did you work on?</h2>
           </div>
-          <div class="date-stamp">One entry at a time <span class="pulse-dot"></span></div>
+          <div class="date-stamp">Live log <span class="pulse-dot"></span></div>
         </div>
 
         <div class="workspace-grid">
           <section class="editor-panel">
-            <div class="section-heading">
+              <div class="section-heading">
               <div>
                 <span class="section-number">01</span>
-                <h2>Capture a moment</h2>
+                <h2>New entry</h2>
               </div>
               <span class="writing-mark">✦</span>
             </div>
@@ -118,7 +117,7 @@
             <div class="section-heading">
               <div>
                 <span class="section-number">02</span>
-                <h2>Your trail</h2>
+                <h2>Recent entries</h2>
               </div>
               <span class="log-count">Live</span>
             </div>
