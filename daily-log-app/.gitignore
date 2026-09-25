@@ -1,9 +1,0 @@
-# Ignore environment variables file (contains sensitive secrets)
-.env
-.env.local
-
-# Ignore installed dependencies
-node_modules/
-
-# Ignore log files
-*.log
