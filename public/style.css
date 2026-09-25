@@ -1,17 +1,52 @@
-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f0f2f5;
-  margin: 0;
-  padding: 20px;
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --ink: #202320;
+  --muted: #74766e;
+  --paper: #f5f3ed;
+  --panel: #fffdf8;
+  --line: #deddd3;
+  --coral: #f36d53;
+  --coral-dark: #d95740;
+  --sage: #c9d6c2;
+  --shadow: 0 24px 70px rgba(37, 39, 31, 0.1);
 }
 
+* { box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: "Manrope", sans-serif;
+  overflow-x: hidden;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  content: "";
+  opacity: 0.42;
+  background-image: radial-gradient(#c4c5ba 0.7px, transparent 0.7px);
+  background-size: 18px 18px;
+  pointer-events: none;
+}
+
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+
 .container {
-  max-width: 550px;
-  margin: 30px auto;
-  background: #ffffff;
-  padding: 28px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  position: relative;
+  width: min(1180px, calc(100% - 48px));
+  min-height: calc(100vh - 48px);
+  margin: 24px auto;
+  padding: 54px;
+  overflow: hidden;
+  background: rgba(255, 253, 248, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: var(--shadow);
 }
 
 .hidden {
@@ -109,6 +144,44 @@ hr {
   background: #fdfdfd;
 }
 
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #1a202c;
+}
+
+.badge {
+  background: #e2e8f0;
+  color: #2d3748;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.card-actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+@keyframes rise-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 800px) {
+  .container { width: calc(100% - 24px); min-height: calc(100vh - 24px); margin: 12px auto; padding: 30px 22px; }
+  .header-bar { align-items: flex-start; }
+}
+
+@media (max-width: 500px) {
+  .header-bar { align-items: flex-start; }
+  .account-actions { display: block; text-align: right; }
+}
 .card-header {
   display: flex;
   justify-content: space-between;

@@ -8,80 +8,125 @@
     <script src="app.js" defer></script>
   </head>
   <body>
-    <div class="container">
-      <!-- AUTHENTICATION VIEW -->
-      <div id="authSection">
-        <h1 id="authTitle">Login</h1>
-        <div id="authError" class="error-msg"></div>
+    <main class="container">
+      <div class="ambient-glow ambient-glow-one"></div>
+      <div class="ambient-glow ambient-glow-two"></div>
 
-        <form id="authForm">
-          <div class="input-group">
-            <label for="authUsername">Username</label>
-            <input type="text" id="authUsername" required />
+      <div id="authSection" class="auth-view">
+        <section class="auth-intro" aria-label="Daily Log introduction">
+          <div class="brand-mark">DL</div>
+          <p class="eyebrow">Developer workspace</p>
+          <h1>Make progress<br /><em>visible.</em></h1>
+          <p class="intro-copy">
+            A quiet place to capture the work, ideas, and tiny wins that move
+            your projects forward.
+          </p>
+          <div class="intro-note">
+            <span class="pulse-dot"></span>
+            <span>Built for your daily rhythm</span>
           </div>
+        </section>
 
-          <div class="input-group">
-            <label for="authPassword">Password</label>
-            <input type="password" id="authPassword" required />
-          </div>
+        <section class="auth-panel">
+          <div class="panel-kicker">Welcome back</div>
+          <h2 id="authTitle">Login</h2>
+          <p class="panel-subtitle">Sign in to pick up where you left off.</p>
+          <div id="authError" class="error-msg" role="alert"></div>
 
-          <button type="submit" id="authSubmitBtn">Log In</button>
-        </form>
+          <form id="authForm">
+            <div class="input-group">
+              <label for="authUsername">Username</label>
+              <input type="text" id="authUsername" placeholder="your username" autocomplete="username" required />
+            </div>
 
-        <p class="toggle-text">
-          <span id="toggleMsg">Don't have an account?</span>
-          <a href="#" id="toggleAuthMode">Register here</a>
-        </p>
+            <div class="input-group">
+              <label for="authPassword">Password</label>
+              <input type="password" id="authPassword" placeholder="••••••••" autocomplete="current-password" required />
+            </div>
+
+            <button type="submit" id="authSubmitBtn" class="primary-btn">Log In <span class="button-arrow">↗</span></button>
+          </form>
+
+          <p class="toggle-text">
+            <span id="toggleMsg">Don't have an account?</span>
+            <a href="#" id="toggleAuthMode">Register here</a>
+          </p>
+        </section>
       </div>
 
-      <!-- APP DASHBOARD VIEW (Hidden by default) -->
       <div id="appSection" class="hidden">
         <div class="header-bar">
-          <h2>Welcome, <span id="userDisplay"></span>!</h2>
-          <button id="logoutBtn" class="secondary-btn">Logout</button>
+          <div class="dashboard-brand">
+            <div class="brand-mark small">DL</div>
+            <div>
+              <p class="eyebrow">Your workspace</p>
+              <h1>Daily Log</h1>
+            </div>
+          </div>
+          <div class="account-actions">
+            <div class="user-chip"><span class="avatar-dot"></span><span id="userDisplay"></span></div>
+            <button id="logoutBtn" class="secondary-btn">Log out <span>↗</span></button>
+          </div>
         </div>
 
-        <form id="logForm">
-          <input type="hidden" id="logId" />
-
-          <div class="input-group">
-            <label for="title">Title</label>
-            <input
-              type="text"
-              id="title"
-              placeholder="e.g. Optimized Neon pool queries"
-              required
-            />
+        <div class="dashboard-intro">
+          <div>
+            <p class="eyebrow">Keep the signal</p>
+            <h2>What did you move forward today?</h2>
           </div>
+          <div class="date-stamp">One entry at a time <span class="pulse-dot"></span></div>
+        </div>
 
-          <div class="input-group">
-            <label for="category">Category</label>
-            <select id="category">
-              <option value="Feature">Feature</option>
-              <option value="Bug Fix">Bug Fix</option>
-              <option value="Refactor">Refactor</option>
-              <option value="Learning">Learning</option>
-            </select>
-          </div>
+        <div class="workspace-grid">
+          <section class="editor-panel">
+            <div class="section-heading">
+              <div>
+                <span class="section-number">01</span>
+                <h2>Capture a moment</h2>
+              </div>
+              <span class="writing-mark">✦</span>
+            </div>
 
-          <div class="input-group">
-            <label for="content">Details</label>
-            <textarea
-              id="content"
-              rows="3"
-              placeholder="What did you build or fix?"
-              required
-            ></textarea>
-          </div>
+            <form id="logForm">
+              <input type="hidden" id="logId" />
 
-          <button type="submit" id="saveLogBtn">Save Log</button>
-        </form>
+              <div class="input-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" placeholder="e.g. Optimized Neon pool queries" required />
+              </div>
 
-        <hr />
+              <div class="input-group">
+                <label for="category">Category</label>
+                <select id="category">
+                  <option value="Feature">Feature</option>
+                  <option value="Bug Fix">Bug Fix</option>
+                  <option value="Refactor">Refactor</option>
+                  <option value="Learning">Learning</option>
+                </select>
+              </div>
 
-        <h2>Your Daily Logs</h2>
-        <div id="logsList"></div>
+              <div class="input-group">
+                <label for="content">Details</label>
+                <textarea id="content" rows="5" placeholder="What did you build or fix?" required></textarea>
+              </div>
+
+              <button type="submit" id="saveLogBtn" class="primary-btn">Save Log <span class="button-arrow">↗</span></button>
+            </form>
+          </section>
+
+          <section class="logs-panel">
+            <div class="section-heading">
+              <div>
+                <span class="section-number">02</span>
+                <h2>Your trail</h2>
+              </div>
+              <span class="log-count">Live</span>
+            </div>
+            <div id="logsList"></div>
+          </section>
+        </div>
+
       </div>
-    </div>
+    </main>
   </body>
 </html>
